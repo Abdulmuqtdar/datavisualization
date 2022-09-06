@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3 JS example</title>
+</head>
+<body>
+<h2>Record of the top Students of the class</h2>
+    <ul></ul>
+    <svg>width="800px" height="800px"</svg>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        heros = ['Abdul','Muqtdar','Great','Gujjar']
+    d3.select('h2').style('font-size', "20px");
+    d3.select("ul")
+    .selectAll('li')
+    .data(heros)
+    .enter()
+    .append('li')
+    .text(hero => hero + "!");
+    var numbers = [20, 150, 80, 50, 80];
+    var barHeight = 40;
+    d3.select("svg")
+    .selectAll("rect")
+    .data(numbers)
+    .enter()
+    .append("rect")
+    .attr("width",d =>d)
+    .attr('height',barHeight -5)
+    .attr('transform', (d,i) => "translate(100 , "+ i * barHeight +" )")
+    </script>
+    
+</body>
+</html>
